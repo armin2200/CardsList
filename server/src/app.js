@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const errorHandler = require('./handlers/error');
-const searchRoute = require('./routers/search');
+const productRoute = require('./routers/product');
 
 const app = express();
 // var allowCrossDomain = function(req, res, next) {
@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 // app.use(allowCrossDomain);
 app.use(express.json());
-app.use('/API/search', searchRoute);
+app.use('/API', productRoute);
 
 app.use(function(req, res, next) {
   let err = new Error('Not Found');
